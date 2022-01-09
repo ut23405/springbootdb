@@ -17,12 +17,11 @@ public class SyainRepository {
 		String sql = "select id,name,romaji from syain";
 		List<Map<String, Object>> syainList = jdbcTemplate.queryForList(sql);
 		List<SyainDto> list = new ArrayList<>();
-		for (Map<String, Object> str1 : syainList) {
-			SyainDto syain = new SyainDto();	
-			syain.setId((int) str1.get("id"));
-			syain.setName((String) str1.get("name"));
-			syain.setRomaji((String) str1.get("romaji"));
-			list.add(syain);
+		for (Map<String, Object> syain : syainList) {
+			list.add(new SyainDto(
+					(int) syain.get("id"),
+					(String) syain.get("name"),
+					(String) syain.get("romaji")));
 		}
 		return list;
 	}
