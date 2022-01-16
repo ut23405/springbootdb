@@ -14,13 +14,18 @@ public class SyainRepository {
 
 	public void insertSyain(List<SyainDto> syainList) {
 		for (SyainDto syain : syainList) {
-			jdbcTemplate.update("INSERT INTO syain(id,name,romaji) Values(?,?,?)",
-					syain.getId(), syain.getName(),syain.getRomaji());
+			jdbcTemplate.update(
+					"INSERT INTO syain"
+					+ "(id,name,romaji,created_at,updated_at) "
+					+ "Values(?,?,?,?,?)",
+					syain.getId(), syain.getName(),syain.getRomaji(),
+					syain.getCreatedAt(),syain.getUpdatedAt());
 		}
 	}
 
 	public void updateSyain() {
-		jdbcTemplate.update("UPDATE syain SET name = ? ,romaji = ? where id = ?",
+		jdbcTemplate.update(
+				"UPDATE syain SET name = ? ,romaji = ? where id = ?",
 				"testName", "testRomaji", 2);
 	}
 
