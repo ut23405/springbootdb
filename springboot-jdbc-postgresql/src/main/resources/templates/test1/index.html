@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<title>check</title>
-</head>
-<body >
-<table>
-	<tr>
-		<th>id</th><th>name</th><th>romaji</th>
-	</tr>
-	<tr th:each="list : ${SyainList}">
-		<td th:text="${list.id}"></td>
-		<td th:text="${list.name}"></td>
-		<td th:text="${list.romaji}"></td>
-	</tr>
-</table>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>check</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>romaji</th>
+        <th>createdAt</th>
+        <th>updatedAt</th>
+      </tr>
+      <tr th:each="list : ${SyainList}">
+        <td th:text="${list.id}"></td>
+        <td th:text="${list.name}"></td>
+        <td th:text="${list.romaji}"></td>
+        <td th:text="${list.createdAt}"></td>
+        <td th:text="${list.updatedAt}"></td>
+      </tr>
+    </table>
+  </body>
 </html>
